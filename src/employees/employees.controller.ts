@@ -13,6 +13,7 @@ export class EmployeesController {
     return this.employeesService.create(createEmployeeDto);
   }
 
+  @SkipThrottle({ default: false })
   @Get()
   findAll(@Query('role') role?: 'INTERN' | 'ENGINEER' | 'ADMIN') {
     return this.employeesService.findAll(role);
